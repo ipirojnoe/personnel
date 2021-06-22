@@ -1,24 +1,14 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Установка и запуск
 
-Things you may want to cover:
+```bash
+git clone git@github.com:sirdemin/personnel.git
+cd personnel
+bundle install
+yarn add @popper/core
+cp config/database.yml.example config/database.yml
+rails db:migrate
+bundle exec rails s
+```
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+[Heroku](https://personnel2021.herokuapp.com/)
