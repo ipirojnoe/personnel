@@ -1,0 +1,10 @@
+<%= form_for @position do |f| %>
+  <%= fields_for :position_history, @position_history do |ph_field| %>
+    <div class="form-group">
+      <%= ph_field.label :name, 'Название' %>
+      <%= ph_field.text_field :name, class: 'form-control' %>
+    </div>
+  <% end %>
+
+  <%= f.submit 'Сохранить', class: 'btn btn-primary' %>
+<% end %>

@@ -1,0 +1,59 @@
+@import '~bootstrap/scss/bootstrap';
+@import 'events';
+@import "~air-datepicker/dist/css/datepicker.min";
+
+/* Buffers */
+.buffer-top {
+  margin-top: 20px;
+}
+
+.buffer-bottom {
+  margin-bottom: 20px;
+}
+
+.buffer-both {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.buffer-left {
+  margin-left: 20px;
+}
+
+.padding-both {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+/* Avatars for users & events */
+.img-icon {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+
+.img-icon-small {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+}
+
+/* Thumbnails for events/index */
+.thumbnail {
+  position: relative;
+  background: transparent;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.thumbnail h3 {
+  white-space: nowrap;
+  overflow: hidden;
+  margin-top: 0;
+  margin-bottom: .3em;
+}
+
+.thumbnail-inner {
+  padding: 20px 4px 4px;
+}

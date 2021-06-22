@@ -1,0 +1,43 @@
+<div class="accordion" id="accordion2">
+  <p>
+    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#Collapse<%= division.id %>" aria-expanded="false" aria-controls="Collapse<%= division.id %>">Подразделение <%= division.name %></button>
+  </p>
+  <div class="row">
+    <div class="col">
+      <div class="collapse multi-collapse" id="Collapse<%= division.id %>">
+        <div class="card card-body">
+          <% if users_with_positions.present? %>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">ФИО</th>
+                  <th scope="col">Должность</th>
+                </tr>
+              </thead>
+              <tbody>
+              <% users_with_positions.each.with_index(1) do |user_w_position, i| %>
+                <tr>
+                  <th scope="row"><%= i %></th>
+                  <td><%= user_w_position[:name] %></td>
+                  <td><%= user_w_position[:position] %></td>
+                </tr>
+              <% end %>
+              </tbody>
+            </table>
+          <% else %>
+            <p>Сотрудники отсутствуют</p>
+          <% end %>
+
+          <% if children.present? %>
+            <% children.each do |child| %>
+              <%= render 'form', division: child[:division], users_with_positions: child[:users_with_positions],
+                  children: child[:children] %>
+              <hr>
+            <% end%>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

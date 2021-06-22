@@ -1,0 +1,62 @@
+<div class="text-center buffer-top">
+  <h1><%= @user.full_name %></h1>
+  <%= link_to 'Изменить', edit_user_path(@user), class: 'btn btn-primary' %>
+  <%= link_to 'Удалить', @user, method: :delete, class: 'btn btn-danger buffer-left', data: 
+        { confirm: 'Вы действительно хотите удалить сотрудника?' } %>
+
+  <div class="buffer-top">
+    <h2>История должностей</h2>
+
+    <%= form_for :employment_term, url: "#{@user.id}", html: { method: 'GET' } do |f| %>
+      <%= hidden_field(:user, :id, value: @user.id) %>
+      <div class="form-group">
+        <%= f.label :begin_date, 'Начало работы' %>
+        <p> 
+          <%= f.text_field :begin_date,
+                            class: 'form-control datepicker-here',
+                            data: { 
+                              timepicker: 'true',
+                              'date-format': 'dd.mm.yyyy',
+                              'time-format':  'hh:ii'
+                            }
+          %>
+        </p>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :end_date, 'Окончание работы' %>
+        <p> 
+          <%= f.text_field :end_date,
+                            class: 'form-control datepicker-here',
+                            data: { 
+                              timepicker: 'true',
+                              'date-format': 'dd.mm.yyyy',
+                              'time-format':  'hh:ii'
+                            }
+          %>
+        </p>
+      </div>
+      <%= f.submit 'Искать', class: 'btn btn-primary' %>
+    <% end %>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Должность</th>
+          <th scope="col">Период работы</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @positions.each.with_index(1) do |position, i| %>
+        <tr>
+          <th scope="row"><%= i %></th>
+          <td><%= position[:name] %></td>
+          <td><%= position[:begin_date] %> - <%= position[:end_date] || 'настоящее время' %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+

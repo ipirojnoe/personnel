@@ -1,0 +1,8 @@
+<div class="row justify-content-center">
+  <div class="col-md-8">
+    <h4 class="mt-2">Иерархия подразделений</h4>
+
+    <%= render 'form', division: @divisions_with_users[:division], users_with_positions: @divisions_with_users[:users_with_positions],
+        children: @divisions_with_users[:children] %>
+  </div>
+</div>

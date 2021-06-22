@@ -1,0 +1,46 @@
+<%= form_for @employment_term do |f| %>
+  <div class="form-group">
+    <%= f.label :user, 'Сотрудник' %>
+    <%= f.select :user, @options_for_users, { prompt: '' }, { class: 'form-control' } %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :division, 'Подразделение' %>
+    <%= f.select :division, @options_for_divisions, { prompt: '' }, { class: 'form-control' } %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :position, 'Должность' %>
+    <%= f.select :position, @options_for_positions, { prompt: '' }, { class: 'form-control' } %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :begin_date, 'Начало работы' %>
+    <p> 
+      <%= f.text_field :begin_date,
+                        class: 'form-control datepicker-here',
+                        data: { 
+                          timepicker: 'true',
+                          'date-format': 'dd.mm.yyyy',
+                          'time-format':  'hh:ii'
+                        }
+      %>
+    </p>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :end_date, 'Окончание работы' %>
+    <p> 
+      <%= f.text_field :end_date,
+                        class: 'form-control datepicker-here',
+                        data: { 
+                          timepicker: 'true',
+                          'date-format': 'dd.mm.yyyy',
+                          'time-format':  'hh:ii'
+                        }
+      %>
+    </p>
+  </div>
+
+  <%= f.submit 'Сохранить', class: 'btn btn-primary' %>
+<% end %>

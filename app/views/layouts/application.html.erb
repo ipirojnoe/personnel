@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Сотрудники</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_pack_tag 'application', media: 'all' %>
+  <%= javascript_pack_tag 'application' %>
+</head>
+
+<body>
+  <div class="navbar sticky-top navbar-expand-md navbar-light bg-light">
+    <div class="container">
+      <%= link_to 'Сотрудники', root_path, class: 'navbar-brand' %>
+      <button class="navbar-toggler" type="button"
+              data-toggle="collapse" data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent"> 
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item"><%= link_to 'Новый сотрудник', new_user_path, class: 'nav-link' %></li>
+            <li class="nav-item"><%= link_to 'Новые условия труда', new_employment_terms_path, class: 'nav-link' %></li>
+            <li class="nav-item"><%= link_to 'Новая должность', new_position_path, class: 'nav-link' %></li>
+            <li class="nav-item"><%= link_to 'Иерархия подразделений', divisions_path, class: 'nav-link' %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <% if flash.any? %>
+        <div class="content-wrapper buffer-both">
+          <% flash.each do |name, message| %>
+          <div class="alert alert-<%= flash_class(name) %> show fade" role="alert">
+            <button type="button" class="close" data-dismiss="alert">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <%= content_tag :div, message %>
+          </div>
+          <% end %>
+        </div>
+        <% end%>
+        <div class="buffer-both">
+          <%= yield %>
+        </div>
+      </div>
+      <div class="col-lg-3"></div>
+    </div>
+  </div>
+</body>
+</html>
