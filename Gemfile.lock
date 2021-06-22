@@ -105,6 +105,7 @@ GEM
     nio4r (2.5.7)
     nokogiri (1.11.2-x86_64-linux)
       racc (~> 1.4)
+    pg (1.2.3)
     pry (0.14.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -231,6 +232,7 @@ DEPENDENCIES
   factory_bot_rails
   jbuilder (~> 2.7)
   listen (~> 3.2)
+  pg
   pry-rails
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.6)
