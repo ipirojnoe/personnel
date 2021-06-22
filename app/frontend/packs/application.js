@@ -17,4 +17,4 @@ import '../scripts/events'
 import '../styles/application'
 
 // images
-const images = require.context('../images', true)
+// const images = require.context('../images', true)

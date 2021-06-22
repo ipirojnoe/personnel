@@ -25,8 +25,6 @@ class UsersController < ApplicationController
     @positions = employment_terms.map do |et|
       { name: et.position.position_histories.current.name, begin_date: et.begin_date, end_date: et.end_date }
     end
-
-    # binding.pry
   end
 
   def new
